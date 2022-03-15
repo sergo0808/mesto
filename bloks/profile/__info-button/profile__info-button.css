@@ -5,6 +5,10 @@
   margin-left: 19px;
   background-color: black;
   border: 1px solid #ffff;
+  cursor: pointer;
+}
+.profile__info-button:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {

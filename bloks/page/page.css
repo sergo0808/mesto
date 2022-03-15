@@ -5,22 +5,11 @@
   background-color: black;
   padding-top: 45px;
   color: white;
+  padding-left: 19px;
+  padding-right: 19px;
 
   font-family: "Inter", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-}
-
-@media screen and (max-width: 950px) {
-  .page {
-    padding-left: 19px;
-    padding-right: 19px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .page {
-    padding-top: 26px;
-  }
 }

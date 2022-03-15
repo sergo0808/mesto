@@ -17,3 +17,11 @@
 @import url(../bloks/group/__like/group__like.css);
 @import url(../bloks/group/__text/group__text.css);
 @import url(../bloks/footer/footer.css);
+@import url(../bloks/popup/popup.css);
+@import url(../bloks/popup/__container/popup__container.css);
+@import url(../bloks/popup/__title/popup__title.css);
+@import url(../bloks/popup/__field-1/popup__field-1.css);
+@import url(../bloks/popup/__field-2/popup__field-2.css);
+@import url(../bloks/popup/__submit/popup__submit.css);
+@import url(../bloks/popup/__close-button/popup__close-button.css);
+@import url(../bloks/popup/_opened/popup_opened.css);
