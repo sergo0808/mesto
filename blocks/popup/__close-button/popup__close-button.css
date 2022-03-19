@@ -9,13 +9,8 @@
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-<<<<<<< HEAD:bloks/popup/__close-button/popup__close-button.css
-
-  transform: translate(438px, -40px);
-=======
   transform: translate(438px, -73px);
   cursor: pointer;
->>>>>>> fix/hotfix-project:blocks/popup/__close-button/popup__close-button.css
 }
 
 .popup__close-button:hover {
