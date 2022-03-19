@@ -1,0 +1,17 @@
+.element__group {
+  width: 100%;
+  padding-top: 26px;
+  padding-bottom: 25px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  .group {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
