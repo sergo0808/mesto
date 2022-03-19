@@ -10,7 +10,6 @@
   background-position: center;
   position: absolute;
   transform: translate(438px, -73px);
-  cursor: pointer;
 }
 
 .popup__close-button:hover {
