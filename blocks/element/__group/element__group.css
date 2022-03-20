@@ -10,8 +10,7 @@
 }
 
 @media screen and (max-width: 425px) {
-  .group {
+  .element__group {
     padding-top: 25px;
-    padding-bottom: 25px;
   }
 }

@@ -28,42 +28,42 @@
         <img class="element__mask-group" src="./images/photo_Karachaevsk.jpg" alt="Карачаевск" />
         <div class="element__group">
           <h2 class="element__group-text">Карачаевск</h2>
-          <img class="element__group-like" src="./images/like.svg" alt="Лайк" />
+          <button class="element__group-like" type="button"></button>
         </div>
       </div>
       <article class="element">
         <img class="element__mask-group" src="./images/photo_albrus.jpg" alt="Эльбрус" />
         <div class="element__group">
           <h2 class="element__group-text">Гора Эльбрус</h2>
-          <img class="element__group-like" src="./images/like.svg  " alt="Лайк" />
+          <button class="element__group-like" type="button"></button>
         </div>
       </article>
       <article class="element">
         <img class="element__mask-group" src="./images/photo_dombay.jpg" alt="Домбай" />
         <div class="element__group">
           <h2 class="element__group-text">Домбай</h2>
-          <img class="element__group-like" src="./images/like.svg" alt="Лайк" />
+          <button class="element__group-like" type="button"></button>
         </div>
       </article>
       <article class="element">
         <img class="element__mask-group" src="./images/photo_albrus.jpg" alt="Эльбрус" />
         <div class="element__group">
           <h2 class="element__group-text">Гора Эльбрус</h2>
-          <img class="element__group-like" src="./images/like.svg" alt="Лайк" />
+          <button class="element__group-like" type="button"></button>
         </div>
       </article>
       <article class="element">
         <img class="element__mask-group" src="./images/photo_dombay.jpg" alt="Домбай" />
         <div class="element__group">
           <h2 class="element__group-text">Домбай</h2>
-          <img class="element__group-like" src="./images/like.svg" alt="Лайк" />
+          <button class="element__group-like" type="button"></button>
         </div>
       </article>
       <article class="element">
         <img class="element__mask-group" src="./images/photo_Karachaevsk.jpg" alt="Карачаевск" />
         <div class="element__group">
           <h2 class="element__group-text">Карачаево-Черкеск</h2>
-          <img class="element__group-like" src="./images/like.svg" alt="Лайк" />
+          <button class="element__group-like" type="button"></button>
         </div>
       </article>
     </section>
@@ -72,13 +72,15 @@
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
   <div class="popup">
-    <form class="popup__container" name="popname">
-      <button class="popup__close-button" type="button" aria-label="close-btn"></button>
-      <h3 class="popup__title">Редактировать профиль</h3>
-      <input class="popup__input popup__input_name-active" name="input_name" />
-      <input class="popup__input popup__input_job-active" name="input_job" />
-      <button class="popup__submit">Сохранить</button>
-    </form>
+    <div class="popup__container">
+      <form class="popup__form" name="popname">
+        <button class="popup__close-button" type="button" aria-label="close-btn"></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <input class="popup__input popup__input_name_active" name="input_name" />
+        <input class="popup__input popup__input_job_active" name="input_job" />
+        <button class="popup__submit" type="submit">Сохранить</button>
+      </form>
+    </div>
   </div>
   <script src="./scripts/script.js"></script>
 </body>
