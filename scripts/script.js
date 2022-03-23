@@ -1,3 +1,4 @@
+
 let popupElement = document.querySelector(".popup");
 let infoButton = document.querySelector(".profile__info-button");
 let closeButton = document.querySelector(".popup__close-button");
@@ -6,6 +7,40 @@ let nameInput = document.querySelector(".popup__input_name_active");
 let jobInput = document.querySelector(".popup__input_job_active");
 let infoName = document.querySelector(".profile__info-name");
 let infoJob = document.querySelector(".profile__info-job");
+
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+]; 
+
+
+
+
+
+
+
 
 function openPopup() {
   popupElement.classList.add("popup_opened");
