@@ -43,12 +43,17 @@ let elementTeamplate = document.querySelector('#element-teamplate').content;
 let container = document.querySelector('.elements');
 
 
+
 initialCards.forEach(function (element) {
   let CardsElement = elementTeamplate.cloneNode(true);
   CardsElement.querySelector('.element__group-text').textContent = element.name;
   CardsElement.querySelector('.element__mask-group').src  = element.link;
   CardsElement.querySelector('.element__group-like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__group-like_active');    
+});
+
+CardsElement.querySelector('.element__group-basket').addEventListener('click', function (evt) {
+  evt.target.parentNode.remove();        
 });
   container.append(CardsElement);
 });
@@ -90,12 +95,18 @@ function AddPlace(evt) {
   CardsElement.querySelector('.element__group-text').textContent = nameInputadd.value;
   CardsElement.querySelector('.element__mask-group').src = linkInputadd.value;
   CardsElement.querySelector('.element__group-like').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__group-like_active');    
+    evt.target.classList.toggle('element__group-like_active');      
 });
+
+CardsElement.querySelector('.element__group-basket').addEventListener('click', function (evt) {
+  evt.target.parentNode.remove();         
+});
+
 
 container.prepend(CardsElement);
   closePopupadd();
 };
+
 
 
 
