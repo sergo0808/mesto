@@ -1,4 +1,5 @@
 .element__group-text {
+  max-width: 210px;
   margin: 0;
   margin-left: 21px;
   color: black;
