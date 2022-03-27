@@ -3,6 +3,7 @@
   padding-top: 36px;
   background-color: white;
   border-radius: 10px;
+  position: relative;
 }
 
 @media screen and (max-width: 600px) {
