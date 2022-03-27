@@ -50,12 +50,14 @@ let popupCaption = popupElementImg.querySelector(".popup__caption");
 initialCards.forEach(function (element) {
   let CardsElement = elementTeamplate.cloneNode(true);
   let CardText = CardsElement.querySelector('.element__group-text');
-  CardText.textContent = element.name;
   let CardImg = CardsElement.querySelector('.element__mask-group');
+  CardText.textContent = element.name;
   CardImg.src  = element.link;
+  CardImg.alt = element.name;
   CardImg.addEventListener('click', function(){
     popupCaption.textContent = CardText.textContent;
     Img.src = CardImg.src;
+    Img.alt = CardImg.alt;
     openPopupImg();
   });
 
@@ -108,9 +110,11 @@ function AddPlace(evt) {
   let CardTitle = CardsElement.querySelector('.element__group-text');
    CardTitle.textContent = nameInputadd.value; 
    CardImg.src = linkInputadd.value;
+   CardImg.alt = nameInputadd.value;
    CardImg.addEventListener('click', function(){
     popupCaption.textContent = CardText.textContent;
     Img.src = CardImg.src;
+    Img.alt = CardImg.alt;
     openPopupImg();
   });
 
