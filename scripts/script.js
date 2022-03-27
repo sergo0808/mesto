@@ -112,7 +112,7 @@ function AddPlace(evt) {
    CardImg.src = linkInputadd.value;
    CardImg.alt = nameInputadd.value;
    CardImg.addEventListener('click', function(){
-    popupCaption.textContent = CardText.textContent;
+    popupCaption.textContent = CardTitle.textContent;
     Img.src = CardImg.src;
     Img.alt = CardImg.alt;
     openPopupImg();
