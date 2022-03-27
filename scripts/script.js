@@ -41,13 +41,24 @@ let nameInputadd = document.querySelector(".popup__input_name_add");
 let linkInputadd = document.querySelector(".popup__input_link_add");
 let elementTeamplate = document.querySelector('#element-teamplate').content;
 let container = document.querySelector('.elements');
-
-
+let popupElementImg = document.querySelector('.popup-image');
+let formElementImg = popupElementImg.querySelector('.popup__container_image');
+let closeButtonImg = popupElementImg.querySelector(".popup__close-button_image");
+let Img = popupElementImg.querySelector(".popup__image");
+let popupCaption = popupElementImg.querySelector(".popup__caption");
 
 initialCards.forEach(function (element) {
   let CardsElement = elementTeamplate.cloneNode(true);
-  CardsElement.querySelector('.element__group-text').textContent = element.name;
-  CardsElement.querySelector('.element__mask-group').src  = element.link;
+  let CardText = CardsElement.querySelector('.element__group-text');
+  CardText.textContent = element.name;
+  let CardImg = CardsElement.querySelector('.element__mask-group');
+  CardImg.src  = element.link;
+  CardImg.addEventListener('click', function(){
+    popupCaption.textContent = CardText.textContent;
+    Img.src = CardImg.src;
+    openPopupImg();
+  });
+
   CardsElement.querySelector('.element__group-like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__group-like_active');    
 });
@@ -55,6 +66,7 @@ initialCards.forEach(function (element) {
 CardsElement.querySelector('.element__group-basket').addEventListener('click', function (evt) {
   evt.target.parentNode.remove();        
 });
+
   container.append(CardsElement);
 });
 
@@ -77,7 +89,7 @@ function formSubmitHandlerEdit(evt) {
   closePopup();
 };
 
-/* Форма добавления -  новое место */
+/* Форма  -  новое место */
 
 function openPopupadd() {
   popupElementadd.classList.add("popup_opened");
@@ -92,8 +104,17 @@ function closePopupadd() {
 function AddPlace(evt) {
   evt.preventDefault();
   let CardsElement = elementTeamplate.cloneNode(true);
-  CardsElement.querySelector('.element__group-text').textContent = nameInputadd.value;
-  CardsElement.querySelector('.element__mask-group').src = linkInputadd.value;
+  let CardImg = CardsElement.querySelector('.element__mask-group');
+  let CardTitle = CardsElement.querySelector('.element__group-text');
+   CardTitle.textContent = nameInputadd.value; 
+   CardImg.src = linkInputadd.value;
+   CardImg.addEventListener('click', function(){
+    popupCaption.textContent = CardText.textContent;
+    Img.src = CardImg.src;
+    openPopupImg();
+  });
+
+
   CardsElement.querySelector('.element__group-like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__group-like_active');      
 });
@@ -102,19 +123,28 @@ CardsElement.querySelector('.element__group-basket').addEventListener('click', f
   evt.target.parentNode.remove();         
 });
 
-
 container.prepend(CardsElement);
   closePopupadd();
 };
 
+/* Popup с изображение */
+function openPopupImg() {
+  popupElementImg.classList.add("popup_opened");
+};
 
+function closePopupImg() {
+  popupElementImg.classList.remove("popup_opened");
+};
 
-
+/* Обработчики */
 infoButton.addEventListener("click", openPopup);
 closeButton.addEventListener("click", closePopup);
 formElement.addEventListener("submit", formSubmitHandlerEdit);
 addButton.addEventListener("click", openPopupadd);
 closeButtonadd.addEventListener("click", closePopupadd);
 formElementadd.addEventListener("submit", AddPlace);
+closeButtonImg.addEventListener("click", closePopupImg);
+
+
 
 
