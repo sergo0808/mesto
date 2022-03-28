@@ -29,9 +29,9 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
-  <div class="popup popup-edit">
+  <div class="popup popup_type_edit">
     <div class="popup__container">
-      <form class="popup__form" name="popname">
+      <form class="popup__form" name="popup-edit">
         <button class="popup__close-button popup__close-button-edit" type="button" aria-label="close-btn"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <input class="popup__input popup__input_name_active" name="input_name" placeholder="Имя" />
@@ -40,9 +40,9 @@
       </form>
     </div>
   </div>
-  <div class="popup popup-add">
+  <div class="popup popup_type_add">
     <div class="popup__container popup__container-add">
-      <form class="popup__form" name="popname">
+      <form class="popup__form" name="popup-add">
         <button class="popup__close-button close-button-add" type="button" aria-label="close-btn"></button>
         <h3 class="popup__title">Новое место</h3>
         <input class="popup__input popup__input_name_add" name="name_add" placeholder="Название" />
@@ -51,7 +51,7 @@
       </form>
     </div>
   </div>
-  <div class="popup popup-image">
+  <div class="popup popup_type_image">
     <div class="popup__container popup__container_image">
       <button class="popup__close-button popup__close-button_image" type="button" aria-label="close-btn"></button>
       <figure class="popup__group">
@@ -70,7 +70,8 @@
       <button class="element__group-basket" type="button"></button>
     </article>
   </template>
-  <script src="./scripts/script.js"></script>
+  <script src="./scripts/cards.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>

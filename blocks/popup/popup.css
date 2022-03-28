@@ -1,9 +1,9 @@
 .popup {
   display: flex;
   visibility: hidden;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
   top: 0px;
   left: 0;
   right: 0;
