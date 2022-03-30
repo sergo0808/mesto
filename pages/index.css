@@ -20,6 +20,7 @@
 @import url(../blocks/element/__basket/element__group-basket.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_preview/popup_preview_active.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__caption/popup__caption.css);
 @import url(../blocks/popup/__title/popup__title.css);
