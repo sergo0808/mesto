@@ -21,14 +21,27 @@ const popupImg = document.querySelector('.popup_type_image');
 const formElementImg = popupImg.querySelector('.popup__container_image'); 
 const imgButtonClose = popupImg.querySelector(".popup__close-button_image"); 
 const imgElement = popupImg.querySelector(".popup__image"); 
-const popupCaption = popupImg.querySelector(".popup__caption"); 
+const popupCaption = popupImg.querySelector(".popup__caption");
+
+const popups = Array.from(document.querySelectorAll('.popup'));
+
+const clearError = (formElement) => {
+  const inputList = Array.from(popupEdit.querySelectorAll('.popup__input'));
+  const buttonElement = formElement.querySelector('.popup__submit');
+  
+  inputList.forEach(inputElement => {
+    hideInputError(formElement, inputElement, 'popup__input_type_error', 'popup__error_visible');
+  });
+  setButtonState(inputList, buttonElement, 'popup__submit_inactive'); 
+};
+
 
 function closePopup(popup) { 
   popup.classList.remove("popup_opened"); 
 }; 
 
 function openPopup(popup) { 
-  popup.classList.add("popup_opened"); 
+  popup.classList.add("popup_opened");
 }; 
 
 function saveDataFormEdit(evt) { 
@@ -64,7 +77,7 @@ function renderCard (evt){
   evt.preventDefault();
   containerElement.prepend(creatCard(nameInputAdd.value, linkInputAdd.value))
   closePopup(popupAdd);
-}
+};
 
 initialCards.forEach(function (element) { 
   containerElement.append(creatCard(element.name, element.link))
@@ -74,6 +87,7 @@ profileButton.addEventListener("click", function(){
   profileNameInput.value = profileInfoName.textContent; 
   profileJobInput.value = profileInfoJob.textContent;
   openPopup(popupEdit);
+  clearError(popupEdit);
 }); 
 
 profileButtonClose.addEventListener("click", function(){
@@ -92,6 +106,20 @@ cardsButtonClose.addEventListener("click", function(){
 
 imgButtonClose.addEventListener("click", function(){
   closePopup(popupImg);
+});
+
+popups.forEach(popup => {
+  popup.addEventListener('click', evt => {
+    if (evt.target.classList.contains('popup')) {
+      closePopup(popup);
+    };
+  });
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closePopup(popup);
+    };
+    });
 });
 
 popupFormElementAdd.addEventListener("submit", renderCard);

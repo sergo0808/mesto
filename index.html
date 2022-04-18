@@ -31,22 +31,30 @@
   </footer>
   <div class="popup popup_type_edit">
     <div class="popup__container">
-      <form class="popup__form" name="popup-edit">
+      <form class="popup__form" name="user" novalidate>
         <button class="popup__close-button popup__close-button-edit" type="button" aria-label="close-btn"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input class="popup__input popup__input_name_active" name="input_name" placeholder="Имя" />
-        <input class="popup__input popup__input_job_active" name="input_job" placeholder="О себе" />
+        <input type="text" class="popup__input popup__input_name_active" id="name-profile" name="name" placeholder="Имя"
+          minlength="2" maxlength="40" required />
+        <span class="popup__error" id="name-profile-error"></span>
+        <input type="text" class="popup__input popup__input_job_active" id="job-profile" name="job" placeholder="О себе"
+          minlength="2" maxlength="200" required />
+        <span class="popup__error" id="job-profile-error"></span>
         <button class="popup__submit" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
   <div class="popup  popup_type_add">
     <div class="popup__container popup__container-add">
-      <form class="popup__form" name="popup-add">
+      <form class="popup__form" name="place" novalidate>
         <button class="popup__close-button close-button-add" type="button" aria-label="close-btn"></button>
         <h3 class="popup__title">Новое место</h3>
-        <input class="popup__input popup__input_name_add" name="name_add" placeholder="Название" />
-        <input class="popup__input popup__input_link_add" name="link_add" placeholder="Ссылка на картинку" />
+        <input type="text" class="popup__input popup__input_name_add" id="name-mesto" name="mesto"
+          placeholder="Название" minlength="2" maxlength="30" required />
+        <span class="popup__error" id="name-mesto-error"></span>
+        <input type="url" class="popup__input popup__input_link_add" id="link-mesto" name="link"
+          placeholder="Ссылка на картинку" required />
+        <span class="popup__error" id="link-mesto-error"></span>
         <button class="popup__submit popup__submit-add" type="submit">Создать</button>
       </form>
     </div>
@@ -72,6 +80,8 @@
   </template>
   <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
+
 </body>
 
 </html>
