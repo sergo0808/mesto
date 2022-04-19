@@ -35,13 +35,23 @@ const clearError = (formElement) => {
   setButtonState(inputList, buttonElement, 'popup__submit_inactive'); 
 };
 
+function doSomething(popup) {
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closePopup(popup);
+    };
+    });
+};
+
 
 function closePopup(popup) { 
-  popup.classList.remove("popup_opened"); 
+  popup.classList.remove("popup_opened");
+  document.removeEventListener('keydown', doSomething); 
 }; 
 
 function openPopup(popup) { 
   popup.classList.add("popup_opened");
+  doSomething(popup);
 }; 
 
 function saveDataFormEdit(evt) { 
@@ -68,7 +78,7 @@ function creatCard(name, link) {
     evt.target.classList.toggle('element__group-like_active');       
 }); 
 cardElement.querySelector('.element__group-basket').addEventListener('click', function (evt) { 
-  evt.target.parentNode.remove();          
+  evt.target.closest('.element').remove();          
 });
  return cardElement
 };
@@ -86,8 +96,8 @@ initialCards.forEach(function (element) {
 profileButton.addEventListener("click", function(){
   profileNameInput.value = profileInfoName.textContent; 
   profileJobInput.value = profileInfoJob.textContent;
-  openPopup(popupEdit);
   clearError(popupEdit);
+  openPopup(popupEdit);
 }); 
 
 profileButtonClose.addEventListener("click", function(){
@@ -95,9 +105,14 @@ profileButtonClose.addEventListener("click", function(){
 });
 
 cardsButtonAdd.addEventListener("click", function(){
-  openPopup(popupAdd);
   nameInputAdd.value = '';
   linkInputAdd.value = '';
+  const buttonElement = popupAdd.querySelector('.popup__submit');
+  buttonElement.classList.add('popup__submit_inactive');
+  buttonElement.setAttribute('disabled', true);
+
+  openPopup(popupAdd);
+  
 });
 
 cardsButtonClose.addEventListener("click", function(){
@@ -106,20 +121,6 @@ cardsButtonClose.addEventListener("click", function(){
 
 imgButtonClose.addEventListener("click", function(){
   closePopup(popupImg);
-});
-
-popups.forEach(popup => {
-  popup.addEventListener('click', evt => {
-    if (evt.target.classList.contains('popup')) {
-      closePopup(popup);
-    };
-  });
-  
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closePopup(popup);
-    };
-    });
 });
 
 popupFormElementAdd.addEventListener("submit", renderCard);

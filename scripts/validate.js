@@ -7,9 +7,7 @@ const hasInvalidInput = (inputList) => {
 const setButtonState = (inputList, buttonElement, inactiveButtonClass) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.setAttribute('disabled', true);
-    buttonElement.classList.add(inactiveButtonClass);
-   
-    
+    buttonElement.classList.add(inactiveButtonClass);   
   } else {
     buttonElement.removeAttribute('disabled');
     buttonElement.classList.remove(inactiveButtonClass);
@@ -75,8 +73,3 @@ enableValidation({
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
 }); 
-
-
-
-
-
