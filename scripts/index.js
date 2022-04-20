@@ -35,23 +35,21 @@ const clearError = (formElement) => {
   setButtonState(inputList, buttonElement, 'popup__submit_inactive'); 
 };
 
-function doSomething(popup) {
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closePopup(popup);
-    };
-    });
-};
-
-
-function closePopup(popup) { 
-  popup.classList.remove("popup_opened");
-  document.removeEventListener('keydown', doSomething); 
-}; 
+const closeOnEscape = (evt) => {
+  if (evt.key === "Escape") {
+    const popupOpened = document.querySelector(".popup_opened");
+    closePopup(popupOpened);
+  }
+}
 
 function openPopup(popup) { 
   popup.classList.add("popup_opened");
-  doSomething(popup);
+  document.addEventListener('keydown', closeOnEscape)
+}; 
+
+function closePopup(popup) { 
+  popup.classList.remove("popup_opened");
+  document.removeEventListener('keydown', closeOnEscape); 
 }; 
 
 function saveDataFormEdit(evt) { 
@@ -121,6 +119,14 @@ cardsButtonClose.addEventListener("click", function(){
 
 imgButtonClose.addEventListener("click", function(){
   closePopup(popupImg);
+});
+
+popups.forEach(popup => {
+  popup.addEventListener('click', evt => {
+    if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')) {
+      closePopup(popup);
+    }
+  });
 });
 
 popupFormElementAdd.addEventListener("submit", renderCard);
