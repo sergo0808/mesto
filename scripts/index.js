@@ -15,7 +15,6 @@ const popupAdd = document.querySelector(".popup_type_add");
 const popupFormElementAdd = popupAdd.querySelector(".popup__container-add"); 
 const nameInputAdd = document.querySelector(".popup__input_name_add"); 
 const linkInputAdd = document.querySelector(".popup__input_link_add");
-const elementTeamplate = document.querySelector('#element-teamplate').content; 
 const containerElement = document.querySelector('.elements'); 
 const popupImg = document.querySelector('.popup_type_image'); 
 const formElementImg = popupImg.querySelector('.popup__container_image'); 
@@ -28,10 +27,12 @@ const addFormValidator =  new FormValidator(enableValidation, popupFormElementAd
 
 function openPopup(popup) { 
   popup.classList.add("popup_opened");
+  document.addEventListener('keydown', closeOnEscape)
 }; 
 
 function closePopup(popup) { 
   popup.classList.remove("popup_opened");
+  document.removeEventListener('keydown', closeOnEscape);
 }; 
 
 function saveDataFormEdit(evt) { 
@@ -41,13 +42,9 @@ function saveDataFormEdit(evt) {
   closePopup(popupEdit); 
 };
 
-initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link)
-  const cardElement = card.generateCard();
-  document.querySelector('.elements').append(cardElement)
-});
+initialCards.forEach(item => containerElement.append(createCard(item.name, item.link)));
 
-function creatCard(name, link, cardSelector){
+function createCard(name, link, cardSelector){
   const card = new Card(name, link, '#element-teamplate')
   return card.generateCard();
 }
@@ -61,7 +58,7 @@ const closeOnEscape = (evt) => {
 
 function renderCard (evt){
   evt.preventDefault();
-  containerElement.prepend(creatCard(nameInputAdd.value, linkInputAdd.value))
+  containerElement.prepend(createCard(nameInputAdd.value, linkInputAdd.value))
   nameInputAdd.value = "";
   linkInputAdd.value = "";
   closePopup(popupAdd);

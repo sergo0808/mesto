@@ -40,6 +40,7 @@ class Card {
   constructor(name, link, cardSelector){
     this._name = name;
     this._link = link;
+    this._cardSelector = cardSelector;
   }
   _setEventListeners() {
     this._element.querySelector('.element__group-like').addEventListener('click', () => {
@@ -73,7 +74,7 @@ class Card {
 
   _getTemplate(){
     const cardElement = document
-    .querySelector('#element-teamplate')
+    .querySelector(this._cardSelector)
     .content
     .querySelector('.element')
     .cloneNode(true);
