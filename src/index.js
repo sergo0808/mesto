@@ -4,7 +4,7 @@ const numbers = [2, 3, 5];
 const doubledNumbers = numbers.map(number => number * 2);
 
 console.log(doubledNumbers); // 4, 6, 10 
-// import './index.css';
+import './pages/index.css'
 // import { initialCards, Card, enableValidation } from "../scripts/cards.js";
 // import { FormValidator } from "../scripts/FormValidator.js";
 // import PopupWithImage from "../scripts/PopupWithImage.js";
