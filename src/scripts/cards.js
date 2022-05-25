@@ -1,5 +1,3 @@
-import {openPopup, popupCaption, popupImg, imgElement} from './index.js'
-
 const initialCards = [
   {
     name: 'Чикаго',
@@ -37,10 +35,12 @@ const enableValidation = {
 }; 
 
 class Card {
-  constructor(name, link, cardSelector){
-    this._name = name;
-    this._link = link;
+  constructor(data, cardSelector,{handleOpenCard}){
+    this._data = data;
+    this._name = data.name;
+    this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleOpenCard = handleOpenCard;
   }
   _setEventListeners() {
     this._element.querySelector('.element__group-like').addEventListener('click', () => {
@@ -50,7 +50,6 @@ class Card {
     this._element.querySelector('.element__group-basket').addEventListener('click', () => {
       this._handleBasketClick();
     });
-
     this._element.querySelector('.element__mask-group').addEventListener('click', () => {
       this._handleOpenCard();
     });
@@ -64,30 +63,21 @@ class Card {
     this._element.querySelector('.element__group-like').classList.toggle('element__group-like_active')
   }; 
 
-  _handleOpenCard() {
-    const cardImg = this._element.querySelector('.element__mask-group');
-    imgElement.src = cardImg.src;
-    imgElement.alt = cardImg.alt;
-    popupCaption.textContent = imgElement.alt ;
-    openPopup(popupImg);
-  };
-
   _getTemplate(){
     const cardElement = document
     .querySelector(this._cardSelector)
-    .content
-    .querySelector('.element')
+    .content.querySelector('.element')
     .cloneNode(true);
     return cardElement;
   };
 
   generateCard() {
     this._element = this._getTemplate();
-    this._setEventListeners();
     const cardImg = this._element.querySelector('.element__mask-group');
     cardImg.src = this._link;
     cardImg.alt = this._name;
     this._element.querySelector('.element__group-text').textContent = this._name;
+    this._setEventListeners();
     return this._element
 
   } 
