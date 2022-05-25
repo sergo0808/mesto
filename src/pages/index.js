@@ -1,11 +1,11 @@
 
-import './pages/index.css'
-import { initialCards, Card, enableValidation } from "../scripts/cards.js";
-import { FormValidator } from "../scripts/FormValidator.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import Section from "../scripts/section.js";
-import { UserInfo } from "../scripts/UserInfo.js";
+import '../pages/index.css'
+import { initialCards, Card, enableValidation } from "../components/cards.js";
+import { FormValidator } from "../components/FormValidator.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/section.js";
+import { UserInfo } from "../components/UserInfo.js";
 const profileButton = document.querySelector(".profile__info-button"); 
 export const profileButtonClose = document.querySelector(".popup__close-button-edit"); 
 const popupFormElement = document.querySelector(".popup__container"); 
@@ -14,21 +14,14 @@ const profileJobInput = document.querySelector(".popup__input_job_active");
 const profileInfoName = document.querySelector(".profile__info-name"); 
 const profileInfoJob = document.querySelector(".profile__info-job");
 const cardsButtonAdd = document.querySelector('.profile__add-button'); 
-const cardsButtonClose = document.querySelector(".close-button-add"); 
 const popupFormElementAdd = document.querySelector(".popup__container-add"); 
-const nameInputAdd = document.querySelector(".popup__input_name_add"); 
-const linkInputAdd = document.querySelector(".popup__input_link_add");
 const containerElement = document.querySelector('.elements'); 
 const popupImg = document.querySelector('.popup_type_image'); 
-const formElementImg = popupImg.querySelector('.popup__container_image'); 
 export const imgButtonClose = popupImg.querySelector(".popup__close-button_image"); 
 export const imgElement = popupImg.querySelector(".popup__image"); 
 export const popupCaption = popupImg.querySelector(".popup__caption");
-const popups = Array.from(document.querySelectorAll('.popup'));
 const profileFormValidator = new FormValidator(enableValidation, popupFormElement);
 const addFormValidator =  new FormValidator(enableValidation, popupFormElementAdd);
-
-console.log('Hello, World!') 
 
 const cardList = new Section({
   items: initialCards,
