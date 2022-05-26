@@ -1,3 +1,4 @@
+console.log('Rere');
 class Card {
   constructor({name, link}, cardSelector, handleOpenCard){
     this._name = name;
@@ -5,6 +6,8 @@ class Card {
     this._cardSelector = cardSelector;
     this._handleOpenCard = handleOpenCard;
   }
+ 
+
   _setEventListeners() {
     this._element.querySelector('.element__group-like').addEventListener('click', () => {
       this._handleLikeClick();

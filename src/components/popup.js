@@ -28,3 +28,4 @@ export default class Popup {
     
   }
 };
+console.log('Rere');

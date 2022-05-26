@@ -23,7 +23,6 @@ const addFormValidator =  new FormValidator(enableValidation, popupFormElementAd
 const userData = new UserInfo(profileInfoName, profileInfoJob);
 const imgPopup = new PopupWithImage('.popup_type_image')
 const popupAdd = new PopupWithForm('.popup_type_add', addCard)
-console.log('Rere')
 
 const cardList = new Section({
   items: initialCards,
