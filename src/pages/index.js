@@ -35,7 +35,7 @@ cardList.renderItems();
 const popupEdit = new PopupWithForm('.popup_type_edit', saveDataFormEdit)
 
 function saveDataFormEdit(input) { 
-  userData.setUserInfo(input.text0, input.text1);
+  userData.setUserInfo(input.name, input.job);
   popupEdit.close(); 
 };
 
