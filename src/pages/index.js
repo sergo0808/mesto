@@ -31,7 +31,7 @@ fetch('https://mesto.nomoreparties.co/v1/cohort-42/users/me/', {
 })
   .then(res => res.json())
   .then((result) => {
-    console.log(result);
+    console.log(result.name, result.about, result._id);
   }); 
 
 
