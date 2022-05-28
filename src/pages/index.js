@@ -24,7 +24,7 @@ const userData = new UserInfo(profileInfoName, profileInfoJob);
 const imgPopup = new PopupWithImage('.popup_type_image')
 const popupAdd = new PopupWithForm('.popup_type_add', addCard)
 
-fetch('https://mesto.nomoreparties.co/v1/cohort-42/cards', {
+fetch('https://mesto.nomoreparties.co/v1/cohort-42/users/me/', {
   headers: {
     authorization: '5a769756-07f6-441a-bbc2-3fc7a58dd4ed'
   }
