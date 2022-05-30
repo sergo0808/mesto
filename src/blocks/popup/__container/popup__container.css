@@ -1,6 +1,6 @@
 .popup__container {
+  max-width: 430px;
   position: relative;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }

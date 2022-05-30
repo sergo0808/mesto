@@ -1,6 +1,10 @@
 .popup__form {
-  max-width: 431px;
+  display: flex;
+  flex-direction: column;
   padding-top: 36px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 35px;
   background-color: white;
   border-radius: 10px;
   position: relative;

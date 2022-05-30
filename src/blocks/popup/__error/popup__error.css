@@ -1,7 +1,6 @@
 .popup__error {
   margin: 0;
-  margin-top: 65px;
-  position: absolute;
+  margin-top: 5px;
   left: 38px;
   color: red;
   font-size: 12px;
@@ -10,5 +9,5 @@
   font-weight: 400;
   transition: opacity .1s linear;
   overflow: hidden;
-  height: 28px;
+  height: 30px;
 }

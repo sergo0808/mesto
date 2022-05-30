@@ -1,3 +1,4 @@
+import PopupWithConfirm from "./PopupWithConfirm";
 class Card {
   constructor({name, link}, cardSelector, handleOpenCard){
     this._name = name;
@@ -20,6 +21,7 @@ class Card {
   };
   
   _handleBasketClick() {
+    const popupConfirm = new PopupWithConfirm
     this._element.remove();  
     this.element = null;
   };

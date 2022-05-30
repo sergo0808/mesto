@@ -36,8 +36,8 @@
         <input type="text" class="popup__input popup__input_name_active" id="name-profile" name="name" placeholder="Имя"
           minlength="2" maxlength="40" required />
         <span class="popup__error" id="name-profile-error"></span>
-        <input type="text" class="popup__input popup__input_job_active" id="job-profile" name="job" placeholder="О себе"
-          minlength="2" maxlength="200" required />
+        <input type="text" class="popup__input popup__input_job_active" id="job-profile" name="about"
+          placeholder="О себе" minlength="2" maxlength="200" required />
         <span class="popup__error" id="job-profile-error"></span>
         <button class="popup__submit" type="submit">Сохранить</button>
       </form>
@@ -67,12 +67,25 @@
       </figure>
     </div>
   </div>
+  <div class="popup popup_type_confirm">
+    <div class="popup__container popup__container-confirm">
+      <form class="popup__form" name="place" novalidate>
+        <button class="popup__close-button close-button-add" type="button" aria-label="close-btn"></button>
+        <h3 class="popup__title popup__title_confirm">Вы уверены ?</h3>
+        <button class="popup__submit popup__submit-confirm" type="submit">Да</button>
+      </form>
+    </div>
+  </div>
+  </div>
   <template id="element-teamplate" class="element-teamplate">
     <article class="element">
       <img class="element__mask-group" alt="#" src="#" />
       <div class="element__group">
         <h2 class="element__group-text"></h2>
-        <button class="element__group-like" type="button"></button>
+        <div class="element__like_container">
+          <button class="element__group-like" type="button"></button>
+          <span class="element__group-count">0</span>
+        </div>
       </div>
       <button class="element__group-basket" type="button"></button>
     </article>
