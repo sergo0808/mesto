@@ -28,7 +28,7 @@ class Card {
     this.element = null;
   };
 
-  _handleCard() {
+  _handleDeleteCard(){
     console.log(this._id)
   }
 

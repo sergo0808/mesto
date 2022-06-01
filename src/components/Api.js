@@ -48,7 +48,7 @@ export class Api {
   }
 
   deleteCardApi(id) {
-    return fetch(this.url + `/cards/` + `${id}`,{
+    return fetch(this.url + `/cards/` + id,{
       method: 'DELETE',
       headers: this.headers,
       body: JSON.stringify(id)

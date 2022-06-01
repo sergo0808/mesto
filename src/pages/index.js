@@ -55,20 +55,22 @@ api.getInitialCards()
 })
 
   function createCard(item){
-    const card = new Card(item,'#element-teamplate', handleOpenCard, handleDeleteCard)
+    const card = new Card(item,'#element-teamplate', handleOpenCard, () => handleDeleteCard(item._id))
     const cardElement = card.generateCard();
     cardList.addItem(cardElement);
      
   }
 
-  function handleDeleteCard(id) { 
-    api.deleteCardApi(id)
-      .then(id => {
-        console.log(id - 'DELETE')
+   function handleDeleteCard(item) {
+     debugger
+     api.deleteCardApi(item)
+      .then(item => {
+        console.log(item - 'DELETE')
       })
   }
 
   function addCard(input) {
+    
     api.addCardApi(input)
     .then(input => {
       createCard(input);
