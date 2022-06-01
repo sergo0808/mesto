@@ -1,4 +1,5 @@
 .element__group-basket {
+  visibility: hidden;
   position: absolute;
   background-image: url(../../../images/basket.svg);
   width: 18px;

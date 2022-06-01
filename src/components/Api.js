@@ -1,3 +1,5 @@
+
+
 const handleResponse = (res) => {
   if (res.ok) {
     return res.json();
@@ -36,6 +38,7 @@ export class Api {
   }
 
   addCardApi(input) {
+    
     return fetch(this.url + `/cards`, {
       method: 'POST',
       headers: this.headers,
@@ -43,4 +46,16 @@ export class Api {
     })  
     .then(handleResponse)
   }
+
+  deleteCardApi(id) {
+    return fetch(this.url + `/cards/` + `${id}`,{
+      method: 'DELETE',
+      headers: this.headers,
+      body: JSON.stringify(id)
+    })
+    .then(handleResponse)
+    
+  }
+
+
 }
