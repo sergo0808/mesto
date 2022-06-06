@@ -60,10 +60,7 @@ api.getInitialCards()
 })
 
 function createCard(item) {  
-  const card = new Card(item, "#element-teamplate", handleOpenCard, 
-   (id) => { handleDeleteCard(item._id)}, 
-   (item) => { handleLikeClick(item)}
-  );
+  const card = new Card(item, "#element-teamplate", handleOpenCard,  handleDeleteCard, handleLikeClick, handleLikeClickDrop);
   const cardElement = card.generateCard();
   cardList.addItem(cardElement);
 }
@@ -72,11 +69,19 @@ const handleLikeClick = (item) => {
   api.likeCardApi(item._id)
     .then((res) => { 
       let count = item._element.querySelector('.element__group-count')
-      count.textContent = res.likes.length;
-      item._element.querySelector('.element__group-like').classList.add('element__group-like_active')
-      
+      count.textContent = res.likes.length;       
   })
-}
+};
+
+const handleLikeClickDrop = (item) => {
+  api.likeCardApiDrop(item._id)
+    .then((res) => { 
+      let count = item._element.querySelector('.element__group-count')
+      count.textContent = res.likes.length;       
+  })
+};
+
+
 
 
    function handleDeleteCard(id) {   
