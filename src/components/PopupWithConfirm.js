@@ -13,7 +13,7 @@ export class PopupWithConfirm extends Popup {
   close() {
     super.close();
   }
-  delete(handleSubmit) {
+  deleteConfirm(handleSubmit) {
     this._handleSubmit = handleSubmit;
     
   }

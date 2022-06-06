@@ -7,6 +7,7 @@ import Section from "../components/Section.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Api } from '../components/Api';
 import { PopupWithConfirm } from '../components/PopupWithConfirm';
+import { data } from 'autoprefixer';
 const profileButton = document.querySelector(".profile__info-button"); 
 export const profileButtonClose = document.querySelector(".popup__close-button-edit"); 
 const popupFormElement = document.querySelector(".popup__container"); 
@@ -26,6 +27,7 @@ const imgPopup = new PopupWithImage('.popup_type_image')
 const popupAdd = new PopupWithForm('.popup_type_add', addCard)
 const popupEdit = new PopupWithForm('.popup_type_edit', saveDataFormEdit)
 const popupConfirm = new PopupWithConfirm('.popup_type_confirm')
+const countLike = document.querySelector('.element__group-count')
 
 const config = {
   url: 'https://mesto.nomoreparties.co/v1/cohort-42',
@@ -39,6 +41,7 @@ const api = new Api(config);
 let cardList = {}
 api.getInitialCards()
   .then(data => {
+    console.log(data);
     cardList = new Section({
       items: data,
       renderer: (item) => {
@@ -54,23 +57,40 @@ api.getInitialCards()
     profileInfoJob.textContent = data.about
 })
 
-  function createCard(item){
-    const card = new Card(item,'#element-teamplate', handleOpenCard, () => handleDeleteCard(item._id))
-    const cardElement = card.generateCard();
-    cardList.addItem(cardElement);
-     
-  }
+const userId = api.UserInfo()
+  .then(data => console.log(data._id))
+  console.log(userId);
 
-   function handleDeleteCard(item) {
-     debugger
-     api.deleteCardApi(item)
-      .then(item => {
-        console.log(item - 'DELETE')
-      })
+function createCard(item) {  
+  const card = new Card(item, "#element-teamplate", '.element__group-count', handleOpenCard,
+   (id) => { handleDeleteCard(item._id)},
+   handleLikeClick);
+  
+  const cardElement = card.generateCard();
+  cardList.addItem(cardElement);
+}
+
+const handleLikeClick = (item) => {
+  api.likeCardApi(item)
+    .then((res) => {   
+ console.log(item)
+  })
+}
+
+
+   function handleDeleteCard(id) {   
+    popupConfirm.open();
+    popupConfirm.deleteConfirm(   
+      api.deleteCardApi(id)
+        .then(id => {
+        console.log('DELETE') 
+        handleBasketClick();
+    })
+    );
+    
   }
 
   function addCard(input) {
-    
     api.addCardApi(input)
     .then(input => {
       createCard(input);
@@ -99,7 +119,6 @@ cardsButtonAdd.addEventListener("click", function(){
   addFormValidator.clearError();
   popupAdd.open();
 });
-
 
 
 function handleOpenCard(name, link) {
