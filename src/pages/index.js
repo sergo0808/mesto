@@ -27,7 +27,6 @@ const imgPopup = new PopupWithImage('.popup_type_image')
 const popupAdd = new PopupWithForm('.popup_type_add', addCard)
 const popupEdit = new PopupWithForm('.popup_type_edit', saveDataFormEdit)
 const popupConfirm = new PopupWithConfirm('.popup_type_confirm')
-const countLike = document.querySelector('.element__group-count')
 
 const config = {
   url: 'https://mesto.nomoreparties.co/v1/cohort-42',
@@ -51,29 +50,31 @@ api.getInitialCards()
     cardList.renderItems();
   });
 
+  let userId;
+
   api.UserInfo()
   .then(data => {
     profileInfoName.textContent = data.name
     profileInfoJob.textContent = data.about
+    userId = data._id
 })
 
-const userId = api.UserInfo()
-  .then(data => console.log(data._id))
-  console.log(userId);
-
 function createCard(item) {  
-  const card = new Card(item, "#element-teamplate", '.element__group-count', handleOpenCard,
-   (id) => { handleDeleteCard(item._id)},
-   handleLikeClick);
-  
+  const card = new Card(item, "#element-teamplate", handleOpenCard, 
+   (id) => { handleDeleteCard(item._id)}, 
+   (item) => { handleLikeClick(item)}
+  );
   const cardElement = card.generateCard();
   cardList.addItem(cardElement);
 }
 
 const handleLikeClick = (item) => {
-  api.likeCardApi(item)
-    .then((res) => {   
- console.log(item)
+  api.likeCardApi(item._id)
+    .then((res) => { 
+      let count = item._element.querySelector('.element__group-count')
+      count.textContent = res.likes.length;
+      item._element.querySelector('.element__group-like').classList.add('element__group-like_active')
+      
   })
 }
 
@@ -131,3 +132,5 @@ popupEdit.setEventListeners();
 popupAdd.setEventListeners();
 imgPopup.setEventListeners();
 popupConfirm.setEventListeners(); 
+
+export {userId}
