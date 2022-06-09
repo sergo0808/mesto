@@ -22,6 +22,4 @@ setUserInfo(name, about) {
    
     this._avatar = avatar.avatar;
   }
-
-
 }

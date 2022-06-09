@@ -27,5 +27,4 @@ export class PopupWithConfirm extends Popup {
       this.close();
     });
   }
-
 }

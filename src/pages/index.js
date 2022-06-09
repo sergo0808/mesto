@@ -102,14 +102,16 @@ const handleLikeClick = (item) => {
   api.likeCardApi(item._id)
   .then((res) => {
     let count = item._element.querySelector(".element__group-count");
-    count.textContent = res.likes.length})
+    count.textContent = res.likes.length
+    item._element.querySelector(".element__group-like").classList.add("element__group-like_active")})
   .catch((res) => {console.log(res)})
 };
 
 const handleLikeClickDrop = (item) => {
   api.likeCardApiDrop(item._id).then((res) => {
     let count = item._element.querySelector(".element__group-count");
-    count.textContent = res.likes.length})
+    count.textContent = res.likes.length
+    item._element.querySelector(".element__group-like").classList.remove("element__group-like_active")})
   .catch((res) => {console.log(res)})
 };
 

@@ -13,5 +13,4 @@ export default class PopupWithImage extends Popup {
     this._imageElement.alt = name;
     this._captionElement.textContent = name;   
   }
-  
 }

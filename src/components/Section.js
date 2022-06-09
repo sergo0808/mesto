@@ -14,5 +14,4 @@ export default  class Section {
       this._renderer(item)
     });
   }
-
 }
