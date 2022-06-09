@@ -14,7 +14,10 @@
   </header>
   <main class="main">
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/Kusto.jpg')%>" alt="Аватар" />
+      <div class="profile__avatar-container">
+        <img class="profile__avatar" src="<%=require('./images/Kusto.jpg')%>" alt="Аватар" />
+        <button class="profile__avatar-update-button"></button>
+      </div>
       <div class="profile__info">
         <h1 class="profile__info-name">Жак-Ив Кусто</h1>
         <button class="profile__info-button" type="button"></button>
@@ -39,7 +42,7 @@
         <input type="text" class="popup__input popup__input_job_active" id="job-profile" name="about"
           placeholder="О себе" minlength="2" maxlength="200" required />
         <span class="popup__error" id="job-profile-error"></span>
-        <button class="popup__submit" type="submit">Сохранить</button>
+        <button class="popup__submit popup__submit-edit" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
@@ -73,6 +76,18 @@
         <button class="popup__close-button close-button_confirm" type="button" aria-label="close-btn"></button>
         <h3 class="popup__title popup__title_confirm">Вы уверены ?</h3>
         <button class="popup__submit popup__submit-confirm" type="submit">Да</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup  popup_type_avatar">
+    <div class="popup__container popup__container-avatar">
+      <form class="popup__form" name="place" novalidate>
+        <button class="popup__close-button close-button-avatar" type="button" aria-label="close-btn"></button>
+        <h3 class="popup__title">Обновить аватар</h3>
+        <input type="url" class="popup__input popup__input_link_avatar" id="link-avatar" name="avatar"
+          placeholder="Ссылка на картинку" required />
+        <span class="popup__error" id="link-avatar-error"></span>
+        <button class="popup__submit popup__submit-avatar" type="submit">Сохранить</button>
       </form>
     </div>
   </div>

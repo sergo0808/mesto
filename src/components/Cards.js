@@ -23,31 +23,35 @@ class Card {
   _setEventListeners() {
     this._element
       .querySelector(".element__group-like")
-      .addEventListener("click", (evt) => {
-        evt.target.classList.toggle("element__group-like_active");
-      });
-    if (!this._isLike) {
+      .addEventListener("click", (evt) => {    
+        evt.target.classList.toggle("element__group-like_active"); 
+      if (!this._isLike) {
       this._handleLikeClick(this);
       this._isLike = true;
-    } else {
+     } else {
       this._handleLikeClickDrop(this);
       this._isLike = false;
     }
+    });
+
     this._element
       .querySelector(".element__group-basket")
       .addEventListener("click", () => {
         this._handleDeleteCard(this._id);
       });
+
     this._element
       .querySelector(".element__mask-group")
       .addEventListener("click", () => {
         this._handleOpenCard(this._name, this._link);
       });
   }
+
   handleBasketClick() {
     this._element.remove();
     this._element = null;
   }
+
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardSelector)
@@ -55,6 +59,7 @@ class Card {
       .cloneNode(true);
     return cardElement;
   }
+
   generateCard() {
     this._element = this._getTemplate();
     this._element.querySelector(".element__group-text").textContent =
@@ -69,7 +74,13 @@ class Card {
       this._element
         .querySelector(".element__group-basket")
         .classList.add("element__group-basket_active");
-    }
+    };
+    cardImg.likes.forEach(likes => {
+      if (likes._id === userId) {
+        this._element.querySelector(".element__group-like").classList.add("element__group-like_active")
+      }
+    });
+    
     this._element.querySelector(".element__group-count").textContent =
       cardImg.likes.length;
     this._setEventListeners();
