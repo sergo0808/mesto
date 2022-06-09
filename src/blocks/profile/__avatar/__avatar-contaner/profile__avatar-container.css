@@ -23,7 +23,7 @@
   content: "";
   display: block;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.8) url(../../../../images/Vector_avatar.svg) no-repeat center center; 
+  background: rgba(0, 0, 0, 0.8) url(../../../../images/Vector_avatar.svg) no-repeat center center;
   opacity: 0;
   transition: opacity 0.8s linear;
 }
