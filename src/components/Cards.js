@@ -1,7 +1,6 @@
-import { userId } from "../pages/index.js";
 class Card {
   constructor(
-    { name, link, owner, _id, likes },
+    { name, link, owner, _id, likes},
     cardSelector,
     handleOpenCard,
     handleDeleteCard,
@@ -24,7 +23,6 @@ class Card {
     this._element
       .querySelector(".element__group-like")
       .addEventListener("click", (evt) => {    
-        evt.target.classList.toggle("element__group-like_active"); 
       if (!this._isLike) {
       this._handleLikeClick(this);
       this._isLike = true;
@@ -37,7 +35,7 @@ class Card {
     this._element
       .querySelector(".element__group-basket")
       .addEventListener("click", () => {
-        this._handleDeleteCard(this._id);
+        this._handleDeleteCard(this);
       });
 
     this._element
@@ -70,17 +68,7 @@ class Card {
     cardImg.alt = this._name;
     cardImg.owner = this._owner;
     cardImg.likes = this._likes;
-    if (cardImg.owner._id === userId) {
-      this._element
-        .querySelector(".element__group-basket")
-        .classList.add("element__group-basket_active");
-    };
-    cardImg.likes.forEach(likes => {
-      if (likes._id === userId) {
-        this._element.querySelector(".element__group-like").classList.add("element__group-like_active")
-      }
-    });
-    
+    cardImg.userId = this._userId
     this._element.querySelector(".element__group-count").textContent =
       cardImg.likes.length;
     this._setEventListeners();

@@ -1,27 +1,27 @@
-const handleResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Ошибка: ${res.status}`);
-};
-
 export class Api {
   constructor(config) {
     this.url = config.url;
     this.headers = config.headers;
   }
 
-  UserInfo() {
+   _handleResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  };
+
+  getUserInfo() {
     return fetch(this.url + `/users/me`, {
       method: "GET",
       headers: this.headers,
-    }).then(handleResponse);
+    }).then(this._handleResponse);
   }
 
   getInitialCards() {
     return fetch(this.url + `/cards`, {
       headers: this.headers,
-    }).then(handleResponse);
+    }).then(this._handleResponse);
   }
 
   updateUserInfom(input) {
@@ -29,7 +29,7 @@ export class Api {
       method: "PATCH",
       headers: this.headers,
       body: JSON.stringify(input),
-    }).then(handleResponse);
+    }).then(this._handleResponse);
   }
 
   addCardApi(input) {
@@ -37,28 +37,28 @@ export class Api {
       method: "POST",
       headers: this.headers,
       body: JSON.stringify(input),
-    }).then(handleResponse);
+    }).then(this._handleResponse);
   }
 
-  deleteCardApi(data) {
-    return fetch(this.url + `/cards/` + data, {
-      method: "DELETE",
-      headers: this.headers,
-    }).then(handleResponse);
-  }
-  
   likeCardApi(id) {
     return fetch(this.url + `/cards/` + id + "/likes", {
       method: "PUT",
       headers: this.headers,
-    }).then(handleResponse);
+    }).then(this._handleResponse);
   }
 
   likeCardApiDrop(id) {
     return fetch(this.url + `/cards/` + id + "/likes", {
       method: "DELETE",
       headers: this.headers,
-    }).then(handleResponse);
+    }).then(this._handleResponse);
+  }
+
+  deleteCardApi(id) {
+    return fetch(this.url + `/cards/` + id, {
+      method: "DELETE",
+      headers: this.headers,
+    }).then(this._handleResponse);
   }
 
   updateAvatarApi(avatar) {
@@ -66,6 +66,6 @@ export class Api {
       method: "PATCH",
       headers: this.headers,
       body: JSON.stringify(avatar),
-    }).then(handleResponse);
+    }).then(this._handleResponse);
   }
 }

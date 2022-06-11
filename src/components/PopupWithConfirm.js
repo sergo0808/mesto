@@ -6,25 +6,25 @@ export class PopupWithConfirm extends Popup {
     this._form = this._popup.querySelector('.popup__form');
     this._buttonDelete = this._form.querySelector('.popup__submit-confirm');
   }
-  open(){
-    super.open();
+
+  close(){
+    super.close();
+    this._form.reset();
+
   }
 
-  close() {
-    super.close();
-  }
-  deleteConfirm(handleSubmit) {
-    this._handleSubmit = handleSubmit;
+  setSubmitHanlder(callback) {
+    this._handleSubmit = callback;
     
   }
 
   setEventListeners() {
     super.setEventListeners();
     
-    this._buttonDelete.addEventListener('submit', (evt) => { 
+    this._form.addEventListener('submit', (evt) => { 
       evt.preventDefault();
       this._handleSubmit();
-      this.close();
+
     });
   }
 }
